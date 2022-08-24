@@ -9,8 +9,8 @@
       >
         <NuxtLink :to="pokemon.name[0].toLowerCase() + pokemon.name.slice(1)">
           <p>{{ pokemon.name }}</p>
+          <p>Total owned : 0</p>
         </NuxtLink>
-        <p>Total owned : 0</p>
       </div>
     </div>
   </div>
