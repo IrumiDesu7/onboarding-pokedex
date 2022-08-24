@@ -35,6 +35,7 @@
 <script>
 import BackButton from '../components/BackButton.vue'
 export default {
+  components: { BackButton },
   data() {
     return {
       currPokemon: [],
@@ -57,6 +58,5 @@ export default {
       console.log('catching pokemon...')
     },
   },
-  components: { BackButton },
 }
 </script>

@@ -7,6 +7,12 @@
   </nav>
 </template>
 
+<script>
+export default {
+  name: 'NavBar',
+}
+</script>
+
 <style scoped>
 a.nuxt-link-exact-active {
   color: #00c58e;
