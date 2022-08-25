@@ -4,7 +4,7 @@
     <p v-if="$fetchState.pending">Fetching pokemon detail...</p>
     <p v-else-if="$fetchState.error">An error occurred :</p>
     <div v-else>
-      <div class="flex justify-center items-center gap-5">
+      <div class="flex justify-center items-center gap-5 my-3">
         <img
           class="shadow rounded-full"
           :src="currPokemon.sprites.front_default"
@@ -16,19 +16,32 @@
         </h3>
       </div>
       <p>{{ catchStatus }}</p>
-      <div>
-        <p class="text-h6 font-semibold">Types :</p>
-        <ul>
-          <li v-for="(type, index) in currPokemon.types" :key="index">
-            {{ capitalizeFirstLetter(type.type.name) }}
-          </li>
-        </ul>
-        <p class="text-h6 font-semibold">Moves :</p>
-        <ul>
-          <li v-for="(move, index) in currPokemon.moves" :key="index">
-            {{ capitalizeFirstLetter(move.move.name) }}
-          </li>
-        </ul>
+      <div class="flex flex-col gap-3">
+        <div class="bg-info-10 p-2 rounded-md shadow-md">
+          <p class="text-h6 font-semibold">Stats</p>
+          <ul>
+            <li v-for="(stat, index) in currPokemon.stats" :key="index">
+              {{ stat.stat.name }} :
+              {{ stat.base_stat }}
+            </li>
+          </ul>
+        </div>
+        <div class="bg-info-20 p-2 rounded-md shadow-md">
+          <p class="text-h6 font-semibold">Types</p>
+          <ul>
+            <li v-for="(type, index) in currPokemon.types" :key="index">
+              {{ capitalizeFirstLetter(type.type.name) }}
+            </li>
+          </ul>
+        </div>
+        <div class="bg-info-20 p-2 rounded-md shadow-md">
+          <p class="text-h6 font-semibold">Moves</p>
+          <ul>
+            <li v-for="(move, index) in currPokemon.moves" :key="index">
+              {{ capitalizeFirstLetter(move.move.name) }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
