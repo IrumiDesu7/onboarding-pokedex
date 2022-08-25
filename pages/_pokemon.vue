@@ -17,7 +17,7 @@
       </div>
       <p>{{ catchStatus }}</p>
       <div class="flex flex-col gap-3">
-        <div class="bg-info-10 p-2 rounded-md shadow-md">
+        <div class="bg-info-10 p-2 rounded-md">
           <p class="text-h6 font-semibold">Stats</p>
           <ul>
             <li v-for="(stat, index) in currPokemon.stats" :key="index">
@@ -26,7 +26,7 @@
             </li>
           </ul>
         </div>
-        <div class="bg-info-20 p-2 rounded-md shadow-md">
+        <div class="bg-info-20 p-2 rounded-md">
           <p class="text-h6 font-semibold">Types</p>
           <ul>
             <li v-for="(type, index) in currPokemon.types" :key="index">
@@ -34,7 +34,7 @@
             </li>
           </ul>
         </div>
-        <div class="bg-info-20 p-2 rounded-md shadow-md">
+        <div class="bg-info-20 p-2 rounded-md">
           <p class="text-h6 font-semibold">Moves</p>
           <ul>
             <li v-for="(move, index) in currPokemon.moves" :key="index">
