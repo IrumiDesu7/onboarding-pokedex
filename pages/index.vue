@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     async getPokemons() {
-      const data = await this.$axios.get('/pokemon/?offset=20&limit=20')
+      const data = await this.$axios.get('/pokemon/?offset=0&limit=20')
       this.pokemons = data.data.results.map((pokemon) => ({
         name: pokemon.name[0].toUpperCase() + pokemon.name.slice(1),
         url: pokemon.url,
