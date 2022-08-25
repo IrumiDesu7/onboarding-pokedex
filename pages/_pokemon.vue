@@ -16,18 +16,20 @@
         </h3>
       </div>
       <p>{{ catchStatus }}</p>
-      <p class="text-h6 font-semibold">Types :</p>
-      <ul>
-        <li v-for="(type, index) in currPokemon.types" :key="index">
-          {{ type.type.name }}
-        </li>
-      </ul>
-      <p class="text-h6 font-semibold">Moves :</p>
-      <ul>
-        <li v-for="(move, index) in currPokemon.moves" :key="index">
-          {{ move.move.name }}
-        </li>
-      </ul>
+      <div>
+        <p class="text-h6 font-semibold">Types :</p>
+        <ul>
+          <li v-for="(type, index) in currPokemon.types" :key="index">
+            {{ type.type.name }}
+          </li>
+        </ul>
+        <p class="text-h6 font-semibold">Moves :</p>
+        <ul>
+          <li v-for="(move, index) in currPokemon.moves" :key="index">
+            {{ move.move.name }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

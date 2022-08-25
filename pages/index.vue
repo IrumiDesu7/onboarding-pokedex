@@ -13,17 +13,12 @@
         </NuxtLink>
       </div>
     </div>
-    <ThePagination />
   </div>
 </template>
 
 <script>
-import ThePagination from '../components/ThePagination.vue'
 export default {
   name: 'IndexPage',
-  components: {
-    ThePagination,
-  },
   data() {
     return {
       pokemons: [],
