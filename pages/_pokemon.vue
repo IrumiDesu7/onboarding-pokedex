@@ -9,7 +9,7 @@
           class="shadow rounded-full"
           :src="currPokemon.sprites.front_default"
           alt=""
-          @click="catchPokemon"
+          @click="catchPokemon(currPokemon.forms[0].name)"
         />
         <h3 class="text-h3 font-semibold">
           {{ capitalizeFirstLetter(currPokemon.forms[0].name) }}
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import BackButton from '../components/BackButton.vue'
 export default {
   components: { BackButton },
@@ -54,8 +55,24 @@ export default {
     capitalizeFirstLetter(str) {
       return str[0].toUpperCase() + str.slice(1).toLowerCase()
     },
-    catchPokemon() {
-      console.log('catching pokemon...')
+    addPokemon(pokemon) {
+      this.$store.commit('pokemon/catch', pokemon)
+    },
+    ...mapMutations({
+      removeCatched(pokemon) {
+        this.$store.commit('pokemon/remove', pokemon)
+      },
+    }),
+    catchPokemon(pokemon) {
+      console.log('catching...')
+      setTimeout(() => {
+        if (Math.round(Math.random()) === 0) {
+          console.log('failed to catch')
+        } else {
+          this.addPokemon(pokemon)
+          console.log('pokemon catched!')
+        }
+      }, 1000)
     },
   },
 }
