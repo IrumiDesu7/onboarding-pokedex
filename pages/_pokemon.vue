@@ -15,17 +15,17 @@
           {{ capitalizeFirstLetter(currPokemon.forms[0].name) }}
         </h3>
       </div>
-      <p>Click on pokemon image to catch it</p>
-      <p class="text-h6 font-semibold">Moves :</p>
-      <ul>
-        <li v-for="(move, index) in currPokemon.moves" :key="index">
-          {{ move.move.name }}
-        </li>
-      </ul>
+      <p>{{ catchStatus }}</p>
       <p class="text-h6 font-semibold">Types :</p>
       <ul>
         <li v-for="(type, index) in currPokemon.types" :key="index">
           {{ type.type.name }}
+        </li>
+      </ul>
+      <p class="text-h6 font-semibold">Moves :</p>
+      <ul>
+        <li v-for="(move, index) in currPokemon.moves" :key="index">
+          {{ move.move.name }}
         </li>
       </ul>
     </div>
@@ -40,6 +40,7 @@ export default {
   data() {
     return {
       currPokemon: [],
+      catchStatus: 'Click image to catch the pokemon!',
     }
   },
   async fetch() {
@@ -64,15 +65,15 @@ export default {
       },
     }),
     catchPokemon(pokemon) {
-      console.log('catching...')
+      this.catchStatus = 'catching...'
       setTimeout(() => {
         if (Math.round(Math.random()) === 0) {
-          console.log('failed to catch')
+          this.catchStatus = 'failed to catch'
         } else {
           this.addPokemon(pokemon)
-          console.log('pokemon catched!')
+          this.catchStatus = 'pokemon catched!'
         }
-      }, 1000)
+      }, 2000)
     },
   },
 }

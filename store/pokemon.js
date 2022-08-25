@@ -1,5 +1,5 @@
 export const state = () => ({
-  catched: ['pikachu', 'bulbasaur'],
+  catched: [],
 })
 
 export const mutations = {
